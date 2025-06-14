@@ -126,7 +126,7 @@ int main(void)
 
 ## Acknowledgments
 
-Developed by Shiva Shrestha — Electronics Engineer at Yarsa Tech.
+Developed by Shiva Shrestha — Electronics Engineer and PhD candidate.
 Special thanks to the STM32 HAL team and community contributors.
 
 ---
