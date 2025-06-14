@@ -1,3 +1,12 @@
+Got it! You want to **include all the parts of your README content** — like overview, features, hardware, integration, code example, license, etc. — all combined in **one complete README file**.
+
+Here’s how you can organize your full README content **all in one single `.md` file**:
+
+---
+
+# Full README.md Example (all parts combined)
+
+````markdown
 # TM1637 STM32 Key Scanner Library
 
 A lightweight TM1637 key-scanning library developed for STM32 microcontrollers using STM32 HAL drivers.  
@@ -15,6 +24,7 @@ This library allows reading key inputs from a TM1637-based module with precise m
 - [Functions Available](#functions-available)
 - [Dependencies](#dependencies)
 - [Integration Guide](#integration-guide)
+- [Code Example](#code-example)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
 
@@ -94,13 +104,62 @@ This library was originally designed and tested as part of a larger **STM32-base
    - Ensure `tim.h` is properly initialized before calling `TM1637` functions.
    - Call `TM1637_Init()` at startup.
 
-3. **Key Reading Example:**
+---
+
+## Code Example
 
 ```c
-TM1637_Init();
-while (1)
+#include "tm1637.h"
+#include "tim.h"
+
+int main(void)
 {
-    uint8_t key_val = TM1637_ReadKey();
-    // Process key_val accordingly
-    HAL_Delay(100);
+    HAL_Init();
+    SystemClock_Config();
+    MX_GPIO_Init();
+    MX_TIM17_Init();
+    HAL_TIM_Base_Start(&htim17);
+
+    TM1637_Init();
+
+    while (1)
+    {
+        uint8_t key_val = TM1637_ReadKey();
+        // Handle the key value here
+        HAL_Delay(100);
+    }
 }
+````
+
+---
+
+## Acknowledgments
+
+Developed by Shiva Shrestha — Electronics Engineer at Yarsa Tech.
+Special thanks to the STM32 HAL team and community contributors.
+
+---
+
+## License
+
+```
+MIT License
+
+Copyright (c) 2024 Shiva Shrestha
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, subject to the following conditions:
+
+*Please credit Shiva Shrestha if you use or modify this code.*
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
