@@ -1,12 +1,3 @@
-Got it! You want to **include all the parts of your README content** — like overview, features, hardware, integration, code example, license, etc. — all combined in **one complete README file**.
-
-Here’s how you can organize your full README content **all in one single `.md` file**:
-
----
-
-# Full README.md Example (all parts combined)
-
-````markdown
 # TM1637 STM32 Key Scanner Library
 
 A lightweight TM1637 key-scanning library developed for STM32 microcontrollers using STM32 HAL drivers.  
